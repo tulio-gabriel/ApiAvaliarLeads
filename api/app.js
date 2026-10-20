@@ -3,7 +3,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Método não permitido' });
   }
 
-  const { nome, email, empresa, tamanho_empresa } = req.body;
+  const { nome, email, empresa, funcionarios } = req.body;
 
 
   let score = 0;
@@ -12,10 +12,10 @@ export default async function handler(req, res) {
   
   if(empresa) score += 15;
 
-  if (empresa && tamanho_empresa === '1-10') score += 10;
-  else if (empresa && tamanho_empresa === '11-50') score += 20;
-  else if (empresa && tamanho_empresa === '51-200') score += 30;
-  else if (empresa && tamanho_empresa === '200+') score += 50;
+  if (empresa && funcionarios === '1-10') score += 10;
+  else if (empresa && funcionarios === '11-50') score += 20;
+  else if (empresa && funcionarios === '51-200') score += 30;
+  else if (empresa && funcionarios === '200+') score += 50;
 
   const isCorporateEmail = !/@(gmail|hotmail|yahoo|outlook)\.com$/i.test(email || '');
   if (isCorporateEmail) score += 20;
