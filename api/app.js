@@ -18,7 +18,7 @@ export default async function handler(req, res) {
   else if (empresa && funcionarios === '200+') score += 50;
 
   const isCorporateEmail = !/@(gmail|hotmail|yahoo|outlook)\.com$/i.test(email || '');
-  if (isCorporateEmail) score += 20;
+  if (isCorporateEmail) score += 25;
 
   return res.status(200).json({
     lead_score: score,
