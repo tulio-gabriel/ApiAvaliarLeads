@@ -12,13 +12,13 @@ export default async function handler(req, res) {
   
   if(empresa) score += 15;
 
-  if (empresa && funcionarios === '1-10') score += 10;
-  else if (empresa && funcionarios === '11-50') score += 20;
-  else if (empresa && funcionarios === '51-200') score += 30;
-  else if (empresa && funcionarios === '200+') score += 50;
+  if (empresa && funcionarios >=1 && funcionarios <= 10) score += 10;
+  else if (empresa && funcionarios >= 11 && funcionarios <= 50) score += 20;
+  else if (empresa && funcionarios >= 51 && funcionarios <= 200) score += 30;
+  else if (empresa && funcionarios > 200) score += 50;
 
   const isCorporateEmail = !/@(gmail|hotmail|yahoo|outlook)\.com$/i.test(email || '');
-  if (isCorporateEmail) score += 25;
+  if (isCorporateEmail) score += 20;
 
   return res.status(200).json({
     lead_score: score,
