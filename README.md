@@ -22,8 +22,3 @@ Projeto de automação híbrida que captura potenciais clientes através de Webh
 6. **Data Store & Google Sheets:** Regista o lead enriquecido com a classificação final.
 
 
-### 2. Importar o Fluxo no Make
-1. No Make, crie um novo cenário.
-2. Clique nos três pontos (...) no menu inferior e selecione **Import Blueprint**.
-3. Escolha o ficheiro `make/blueprint.json`.
-4. Atualize a URL do módulo HTTP com o endpoint da sua API na Vercel.
